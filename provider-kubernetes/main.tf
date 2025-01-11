@@ -11,8 +11,8 @@ provider "kubernetes" {
     config_path = "~/.kube/config"
 }
 
-resource "kubernetes_namespace" "myapp-ns" {
+resource "kubernetes_namespace" "demo_app_ns" {
     metadata {
-        name = "myapp-ns"
+        name = "demo_app_ns"
     }
 }

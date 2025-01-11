@@ -1,7 +1,7 @@
 resource "kubernetes_config_map" "myapp-config" {
     metadata {
       name="myapp-config"
-      namespace = kubernetes_namespace.myapp-ns.metadata[0].name
+      namespace = kubernetes_namespace.demo_app_ns.metadata[0].name
     }
     data = {
         mysql-host = "mydb"

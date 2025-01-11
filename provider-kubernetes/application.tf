@@ -1,7 +1,7 @@
 resource "kubernetes_service" "demo-app-service" {
     metadata {
       name = "demo-app-service"
-      namespace = kubernetes_namespace.myapp-ns.metadata[0].name
+      namespace = kubernetes_namespace.demo_app_ns.metadata.0.name
       labels = {
         app = "demo-app-spring"
       }
@@ -25,7 +25,7 @@ resource "kubernetes_service" "demo-app-service" {
 resource "kubernetes_deployment" "demo-app-deployment" {
    metadata {
      name = "demo-app-deployment"
-     namespace = kubernetes_namespace.myapp-ns.metadata[0].name
+     namespace = kubernetes_namespace.demo_app_ns.metadata.0.name
      labels = {
          app = "demo-app-spring"
      }
@@ -70,7 +70,7 @@ resource "kubernetes_deployment" "demo-app-deployment" {
                     value_from{
                         config_map_key_ref {
                           key = "mysql-username"
-                          name = kubernetes_config_map.myapp-cm.metadata.0.name
+                          name = kubernetes_config_map.myapp-config.metadata.0.name
                         }
                     }
                 }
@@ -80,7 +80,7 @@ resource "kubernetes_deployment" "demo-app-deployment" {
                     value_from{
                         config_map_key_ref {
                             key = "mysql-host"
-                            name = kubernetes_config_map.myapp-cm.metadata.0.name
+                            name = kubernetes_config_map.myapp-config.metadata.0.name
                         }
                     }
                 }
@@ -90,7 +90,7 @@ resource "kubernetes_deployment" "demo-app-deployment" {
                     value_from{
                         config_map_key_ref {
                             key = "mysql-database-name"
-                            name = kubernetes_config_map.myapp-cm.metadata.0.name
+                            name = kubernetes_config_map.myapp-config.metadata.0.name
                         }
                     }
                 }
@@ -107,7 +107,7 @@ resource "kubernetes_deployment" "demo-app-deployment" {
 resource "kubernetes_ingress_v1" "demo-app-ingress" {
    metadata{
     name = "demo-app-ingress"
-    namespace = kubernetes_namespace.myapp-ns.metadata[0].name
+    namespace = kubernetes_namespace.demo_app_ns.metadata.0.name
    }
    spec{
     rule{

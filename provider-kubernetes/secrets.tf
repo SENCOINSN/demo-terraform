@@ -1,7 +1,7 @@
 resource "kubernetes_secret" "myapp-secret" {
     metadata {
       name="myapp-secret"
-      namespace = kubernetes_namespace.myapp-ns.metadata[0].name
+      namespace = kubernetes_namespace.demo_app_ns.metadata.0.name
     }
     data = {
         mysql-root-password = "QW1hZG91MTIzIGVuY29kZWQgDQo="
@@ -13,7 +13,7 @@ resource "kubernetes_secret" "myapp-secret" {
 resource "kubernetes_secret" "docker_secret"{
     metadata {
       name="docker-cfg"
-      namespace = kubernetes_namespace.myapp-ns.metadata[0].name
+      namespace = kubernetes_namespace.demo_app_ns.metadata.0.name
     }
 
     data={
