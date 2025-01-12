@@ -13,6 +13,6 @@ provider "kubernetes" {
 
 resource "kubernetes_namespace" "demo_app_ns" {
     metadata {
-        name = "demo_app_ns"
+        name = "demo-app-ns"
     }
 }
