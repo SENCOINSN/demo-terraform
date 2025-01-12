@@ -20,7 +20,7 @@ resource "kubernetes_service" "demo-mysql-service" {
 
 resource "kubernetes_persistent_volume_claim" "demo_mysql_pvc" {
   metadata {
-    name      = "demo_mysql_pvc"
+    name      = "demo-mysql-pvc"
     namespace = kubernetes_namespace.demo_app_ns.metadata.0.name
     labels = {
       app = "demo-app"
@@ -106,7 +106,7 @@ resource "kubernetes_deployment" "demo-mysql-deployment" {
             value_from {
               secret_key_ref {
                 key  = "mysql-user-password"
-                name = kubernetes_secret.demo_app_secret.metadata.0.name
+                name = kubernetes_secret.myapp-secret.metadata.0.name
               }
             }
           }
