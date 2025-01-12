@@ -54,7 +54,7 @@ jobs:
 
   build:
     runs-on: ubuntu-latest
-
+    needs: [compile]
     steps:
     - uses: actions/checkout@v4
     - name: Set up JDK 17
@@ -95,6 +95,7 @@ jobs:
           
   deploy:
     runs-on: ubuntu-latest
+    needs: [build-image]
     steps:
     - name: Deploy to <your domain>
       uses: appleboy/ssh-action@master
