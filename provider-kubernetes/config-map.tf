@@ -5,7 +5,7 @@ resource "kubernetes_config_map" "myapp-config" {
   }
   data = {
     mysql-host          = "demo-mysql-service"
-    mysql-username      = "root"
+    mysql-username      = "adama"
     mysql-database-name = "db_product"
   }
 }
