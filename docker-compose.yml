@@ -1,0 +1,50 @@
+services:
+  postgres:
+    container_name: postgres-sql-demo
+    image: postgres
+    environment:
+      POSTGRES_USER: username
+      POSTGRES_PASSWORD: password
+      PGDATA: /var/lib/postgresql/data
+      POSTGRES_DB: db_product
+    volumes:
+      - postgres:/data/postgres
+    ports:
+      - 5432:5432
+    networks:
+      - spring-demo
+    restart: unless-stopped
+  
+  demo-terraform:
+    container_name: demo-terraform
+    image: adama93/demo-terraform:latest
+    environment:
+      - DATASOURCE_URL=jdbc:postgresql://postgres:5432/db_product
+      - DATASOURCE_USERNAME=username
+      - DATASOURCE_PASSWORD=password
+    ports:
+      - 8088:8088
+    # volumes:
+    #   - bsn-api-storage:/app/uploads
+    networks:
+      - spring-demo
+    depends_on:
+      - postgres
+
+  # bsn-ui:
+  #   container_name: bsn-ui
+  #   image: alibouali/bsn-ui:1.0.5
+  #   ports:
+  #     - 8080:80
+  #   networks:
+  #     - spring-demo
+  #   depends_on:
+  #     - bsn-api
+networks:
+  spring-demo:
+    driver: bridge
+
+volumes:
+  postgres:
+    driver: local
+ 
