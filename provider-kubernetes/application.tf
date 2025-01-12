@@ -66,7 +66,7 @@ resource "kubernetes_deployment" "demo-app-deployment" {
           }
 
           env {
-            name = "DB_USERNAME"
+            name = "DB_USER"
             value_from {
               config_map_key_ref {
                 key  = "mysql-username"
