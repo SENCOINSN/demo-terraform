@@ -103,6 +103,7 @@ jobs:
         username: ${{ secrets.VPS_USERNAME }}
         host: ${{ secrets.VPS_IP }}
         key: ${{ secrets.SSH_PUB_KEY }}
+        port: ${{ secrets.SSH_PORT }}
         script: |
               mkdir -p ci-cd
               scp -oStrictHostKeyChecking=no docker-compose.yml ${{ secrets.VPS_USERNAME }}@${{ secrets.VPS_IP }}:ci-cd/docker-compose.yml
