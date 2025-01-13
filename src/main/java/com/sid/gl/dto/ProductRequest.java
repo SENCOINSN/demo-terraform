@@ -13,7 +13,6 @@ public record ProductRequest(
     String description,
     @NotNull(message = "Product price cannot be null")
     double price,
-    @NotEmpty(message = "Product quantity cannot be empty")
     @Positive(message = "Product quantity cannot be negative")
     int quantity
 ) {
