@@ -1,6 +1,6 @@
 services:
   nginx-reverse-proxy:
-    container_name: proxy
+    container_name: nginx-proxy
     image: nginx
     networks:
       - frontend
