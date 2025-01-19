@@ -21,7 +21,7 @@ services:
     container_name: demo-terraform
     image: adama93/demo-terraform:latest
     environment:
-      - DATASOURCE_URL=jdbc:mysql://host.docker.internal:3306/db_product
+      - DATASOURCE_URL=jdbc:mysql://host.docker.internal:3306/bd_product
       - DATASOURCE_USERNAME=adama
       - DATASOURCE_PASSWORD=passer123
     ports:
