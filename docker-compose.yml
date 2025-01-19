@@ -23,7 +23,7 @@ services:
       - DATASOURCE_USERNAME=username
       - DATASOURCE_PASSWORD=password
     ports:
-      - 8088:8088
+      - 8087:8087
     # volumes:
     #   - bsn-api-storage:/app/uploads
     networks:

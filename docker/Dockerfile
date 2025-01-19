@@ -14,6 +14,6 @@ FROM amazoncorretto:17
 WORKDIR /app
 COPY --from=build /build/target/*.jar /app/
 
-EXPOSE 8088
+EXPOSE 8087
 
 CMD java -jar demo-terraform-0.0.1-SNAPSHOT.jar
