@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - add_front_devops
     paths:
       - front-ui/**
       - docker/frontend/**
