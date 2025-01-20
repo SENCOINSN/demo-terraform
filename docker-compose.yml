@@ -25,7 +25,10 @@ services:
 
   demo-terraform:
     container_name: demo-terraform
-    image: adama93/demo-terraform:latest
+    # image: adama93/demo-terraform:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
     environment:
       - DATASOURCE_URL=${DATASOURCE_URL}
       - DATASOURCE_USERNAME=${DATASOURCE_USERNAME}
@@ -43,7 +46,10 @@ services:
 
   front-ui:
      container_name: front-ui
-     image: adama93/front-ui:latest
+     build:
+       context: ./front-ui
+       dockerfile: Dockerfile
+     #image: adama93/front-ui:latest
      ports:
        - 8080:80
      networks:

@@ -12,8 +12,11 @@ RUN npm run build
 
 FROM nginx:alpine
 
-COPY nginx.conf /etc/nginx/nginx.conf
+#COPY ../front-ui/nginx.conf /etc/nginx/nginx.conf
 
 COPY --from=build-stage /app/dist/front-ui/browser /usr/share/nginx/html
 
 EXPOSE 80
+
+# Start nginx
+CMD ["nginx", "-g", "daemon off;"]

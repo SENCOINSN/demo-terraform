@@ -2,6 +2,7 @@ package com.sid.gl.controller;
 
 import java.util.List;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -23,6 +24,9 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 
+
+
+@CrossOrigin(origins = "http://app.moodd.xyz")
 @RestController
 @RequestMapping(value = ApiPath.V1+ApiPath.PRODUCT)
 @RequiredArgsConstructor

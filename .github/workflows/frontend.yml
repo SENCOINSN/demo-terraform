@@ -6,7 +6,6 @@ on:
       - main
     paths:
       - front-ui/**
-      - docker/frontend/**
       - 'docker-compose.yml'
       - .github/workflows/*-frontend.yml
 
@@ -36,7 +35,7 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           context: front-ui
-          file: docker/frontend/Dockerfile
+          file: front-ui/Dockerfile
           push: true
           platforms: linux/amd64
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/front-ui:latest,${{ secrets.DOCKERHUB_USERNAME }}/front-ui:${{ steps.extract_version.outputs.VERSION }}
