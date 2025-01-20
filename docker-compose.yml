@@ -1,7 +1,13 @@
 version: '3.8'
 
+networks:
+  spring-demo:
+  frontend:
+   name: frontend
+   external: true
+
 services:
-  
+
   mysql-sql-demo:
     image: mysql
     container_name: mysql-sql-demo
@@ -45,11 +51,6 @@ services:
        - frontend
      depends_on:
        - demo-terraform
-networks:
-  spring-demo:
-  frontend:
-   name: frontend
-   external: true
 
 volumes:
   mysql_data:
