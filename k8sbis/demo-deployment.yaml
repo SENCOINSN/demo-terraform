@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: demo-backend
+  name: demo-backend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: demo-backend
+  template:
+    metadata:
+      labels:
+        app: demo-backend
+    spec:
+      containers:
+      - image: adama93/demo-terraform:v2
+        imagePullPolicy: Always
+        name: demo-backend
+        env:   
+        - name: DATASOURCE_URL   
+          valueFrom:
+            configMapKeyRef :
+                  name: backend-config-map
+                  key: url 
+        - name: DATASOURCE_USERNAME  
+          valueFrom :
+              configMapKeyRef :
+                name: backend-config-map
+                key : username
+        - name: DATASOURCE_PASSWORD 
+          valueFrom :
+              secretKeyRef : 
+                name: demo-secret
+                key : password    
