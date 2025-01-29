@@ -26,7 +26,7 @@ import lombok.RequiredArgsConstructor;
 
 
 
-@CrossOrigin(origins = "http://app.moodd.xyz")
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping(value = ApiPath.V1+ApiPath.PRODUCT)
 @RequiredArgsConstructor

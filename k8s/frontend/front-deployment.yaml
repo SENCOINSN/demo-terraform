@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: front-ui
+  labels:
+    app: front-ui
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      service: front-ui
+  template:
+    metadata:
+      labels:
+        app: front-ui
+        service: front-ui
+    spec:
+      containers:
+        - name: front-ui
+          image: adama93/front-ui:v2
+          ports:
+            - containerPort: 80
+              protocol: TCP
