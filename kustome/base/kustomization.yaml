@@ -1,0 +1,9 @@
+resources:
+ - postgres-pvc.yaml
+ - postgres-pv.yaml
+ - postgres.yaml
+ - postgres-svc.yaml
+ - demo-deployment.yaml
+ - demo-svc.yaml
+ - front-deployment.yaml
+ - front-service.yaml

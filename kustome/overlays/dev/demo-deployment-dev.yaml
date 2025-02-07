@@ -1,0 +1,8 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: demo-backend
+  name: demo-backend
+spec:
+  replicas: 1

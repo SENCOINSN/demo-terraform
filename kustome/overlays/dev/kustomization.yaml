@@ -1,0 +1,22 @@
+resources:
+  - ../../base
+  - namespace.yaml
+
+namespace: dev
+
+patches:
+  - path: demo-svc-dev.yaml
+  - path: demo-deployment-dev.yaml
+  - path: front-deployment-dev.yaml
+  - path: front-service-dev.yaml
+
+secretGenerator:
+  - name: demo-secret
+    literals:
+      - password=cGFzc2VyMTIz
+
+configMapGenerator:
+  - name: backend-config-map
+    literals:
+      - url=jdbc:postgresql://postgres:5432/postgres
+      - username=postgres
