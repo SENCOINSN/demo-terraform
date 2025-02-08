@@ -13,7 +13,7 @@ patches:
 secretGenerator:
   - name: demo-secret
     literals:
-      - password=cGFzc2VyMTIz
+      - password=passer123
 
 configMapGenerator:
   - name: backend-config-map
